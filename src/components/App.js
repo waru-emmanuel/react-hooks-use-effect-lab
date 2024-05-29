@@ -19,6 +19,20 @@ function App() {
     }
   }
 
+  function updateQuestions() {
+    const newQuestions = [/* new questions */];
+    setQuestions(newQuestions);
+    setCurrentQuestion(1);
+    setScore(0);
+  }
+
+  function restartQuiz() {
+    updateQuestions();
+    setQuestions(quiz);  // Reset questions to the original quiz data
+    setCurrentQuestion(1);  // Reset to the first question
+    setScore(0);  // Reset the score
+  }
+
   return (
     <main>
       <section>
@@ -31,6 +45,7 @@ function App() {
           <>
             <h1>Game Over</h1>
             <h2>Total Correct: {score}</h2>
+            <button onClick={restartQuiz}>Restart</button>
           </>
         )}
       </section>
